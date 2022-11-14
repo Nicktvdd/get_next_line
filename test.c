@@ -9,14 +9,17 @@ int	main(int argc, char **argv)
 {
 	int	fd;
 	int	ret;
-
-
+	int	i;
+	
+	if (argc == 0)
+		return 0;
 	fd = open(argv[1], O_RDONLY);
 	if (fd)
 	{
-		while (get_next_line(fd))
+		while (i < 3)
 		{
 			printf("%s", get_next_line(fd));
+			i++;
 		}
 	}
 	close(fd);
