@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:44 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/15 11:04:59 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/15 12:00:09 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ size_t	ft_strlen(char *s)
 }
 
 
+
+	
 
 //make the line to return
 /* static char	*ft_lineread(char ret)
