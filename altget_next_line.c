@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:06:26 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/17 15:14:17 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:55:08 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ char	*get_next_line(int fd)
 
 /* 	while (i < 3) // fix the condition
 	{ */
-		if (ft_strlen(buf, '\n') > 0) // if there is a newline found
+		if (ft_strlen((buf + index), '\n') > 0) // if there is a newline found
 		{
-			ret = ft_strdup(buf, '\n'); // store the string until the newline
-			index = (index + ft_strlen(buf, '\n')); // get the index and store in static int
+			ret = ft_strdup((buf + index), '\n'); // store the string until the newline
+			index = (index + ft_strlen((buf + index), '\n')); // get the index and store in static int
 		}
 		else
 			ret = ft_strdup(buf, '\n'); // continue growing the string until \n is found
