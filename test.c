@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 	{
 		while (i < 2)
 		{
-			printf("%s", get_next_line(fd));
+			printf("FUNCTION CALL\n %s", get_next_line(fd));
+	/* 		get_next_line(fd); */
 			i++;
 		}
 	}
