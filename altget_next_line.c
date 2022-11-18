@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:06:26 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/18 15:17:44 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:29:00 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,17 +124,17 @@ char	*get_next_line(int fd)
 	{ */
 		if (index)
 		{
-			ptr = ft_strdup(buf + index, '\n');
-			printf("PTR IS: %s", ptr);
+			ptr = ft_strdup(buf + index, '\0');
+			printf("PTR IS: %s\n", ptr);
 			ret = ft_strjoin(ret, ptr);
-			printf("I ARRIVE AT IF");
+			printf("I ARRIVE AT IF\n");
 				printf("ret is now: %s\n", ret);
 	printf("buf is now: %s\n", (buf+index));
 		}
 		else
 		{
 			ret = ft_strdup((buf + index), '\n'); // store until newline in ret
-			printf("I ARRIVE AT ELSE");
+			printf("I ARRIVE AT ELSE\n");
 		}
 		index = (index + ft_strlen(ret, '\0')); // get index from where to continue next time
 	/* } */
@@ -163,20 +163,5 @@ char	*get_next_line(int fd)
 			ptr = ft_strdup((buf + index), '\n'); // store string until newline/\0 
 			ret = ft_strjoin((buf + index), ptr); // join strings
 	} */
-
-
-
-/* 	while (i < 3) // fix the condition
-	{ */
-/* 		if (ft_strlen((buf + index), '\n') > 0) // if there is a newline found
-		{
-			ret = ft_strdup((buf + index), '\n'); // store the string until the newline
-			index = (index + ft_strlen((buf + index), '\n')); // get the index and store in static int
-		}
-		else
-			ret = ft_strdup(buf, '\n'); */ // continue growing the string until \n is found
-/* 		i++;
-	} */
-	
 	return (ret);
 }
