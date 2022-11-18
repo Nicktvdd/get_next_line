@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:06:26 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/18 15:08:38 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:17:44 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,10 @@ char	*get_next_line(int fd)
 	static size_t	rindex;
 	char			*ptr;
 
-	buf = (char*)malloc(BUFFER_SIZE + 1);
-	ptr = (char*)malloc(100);
+	if (!buf)
+		buf = (char*)malloc(BUFFER_SIZE + 1);
+	if (!ptr)
+		ptr = (char*)malloc(100);
 	if (!fd || BUFFER_SIZE == 0)
 		return (NULL);
 	if (i < 1)
@@ -118,17 +120,24 @@ char	*get_next_line(int fd)
 	printf("ret is now: %s\n", ret);
 
 	printf("buf is now: %s\n", (buf+index));
-	if (ft_flag(buf)) // if newline is found in buf
-	{
+/* 	if (ft_flag(buf + index)) // if newline is found in buf
+	{ */
 		if (index)
 		{
 			ptr = ft_strdup(buf + index, '\n');
+			printf("PTR IS: %s", ptr);
 			ret = ft_strjoin(ret, ptr);
+			printf("I ARRIVE AT IF");
+				printf("ret is now: %s\n", ret);
+	printf("buf is now: %s\n", (buf+index));
 		}
 		else
+		{
 			ret = ft_strdup((buf + index), '\n'); // store until newline in ret
+			printf("I ARRIVE AT ELSE");
+		}
 		index = (index + ft_strlen(ret, '\0')); // get index from where to continue next time
-	}
+	/* } */
 	printf("ret is now: %s\n", ret);
 	printf("buf is now: %s\n", (buf+index));
 /* 	while (!ft_flag(buf))
