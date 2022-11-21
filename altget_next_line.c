@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:06:26 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/18 15:29:00 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:57:04 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(char *s, char c)
 	{
 		i++;
 	}
-	return (i);
+	return (++i);
 }
 
 size_t	ft_flag(char *s)
@@ -101,14 +101,12 @@ char	*get_next_line(int fd)
 	static char		*buf;
 	static char		*ret;
 	static size_t	index;
-	static	int 	i;
+	int 	i;
 	static size_t	rindex;
 	char			*ptr;
 
 	if (!buf)
 		buf = (char*)malloc(BUFFER_SIZE + 1);
-	if (!ptr)
-		ptr = (char*)malloc(100);
 	if (!fd || BUFFER_SIZE == 0)
 		return (NULL);
 	if (i < 1)
@@ -117,29 +115,28 @@ char	*get_next_line(int fd)
 		buf[end] = '\0';
 		i++;
 	}
-	printf("ret is now: %s\n", ret);
-
-	printf("buf is now: %s\n", (buf+index));
+/* 				printf("\nret is now: %s\n", ret);
+				printf("\nbuf is now: %s\n", (buf+index)); */
 /* 	if (ft_flag(buf + index)) // if newline is found in buf
 	{ */
-		if (index)
+/* 		if (index)
 		{
+				printf("\nI ARRIVE AT IF\n");
 			ptr = ft_strdup(buf + index, '\0');
 			printf("PTR IS: %s\n", ptr);
 			ret = ft_strjoin(ret, ptr);
-			printf("I ARRIVE AT IF\n");
-				printf("ret is now: %s\n", ret);
-	printf("buf is now: %s\n", (buf+index));
+				printf("\nret is now: %s\n", ret);
+				printf("\nbuf is now: %s\n", (buf+index));
 		}
 		else
-		{
+		{ */
+/* 				printf("\nI ARRIVE AT ELSE\n"); */
 			ret = ft_strdup((buf + index), '\n'); // store until newline in ret
-			printf("I ARRIVE AT ELSE\n");
-		}
+/* 		} */
 		index = (index + ft_strlen(ret, '\0')); // get index from where to continue next time
 	/* } */
-	printf("ret is now: %s\n", ret);
-	printf("buf is now: %s\n", (buf+index));
+/* 				printf("\nret is now: %s\n", ret);
+				printf("\nbuf is now: %s\n", (buf+index)); */
 /* 	while (!ft_flag(buf))
 	{
 			ptr = ft_strdup((buf + index), '\n'); // store string until newline/\0 

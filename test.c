@@ -4,12 +4,13 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int	main(int argc, char **argv)
 {
 	int	fd;
-	int	ret;
 	int	i;
+	char *line;
 	
 	if (argc == 0)
 		return 0;
@@ -18,8 +19,9 @@ int	main(int argc, char **argv)
 	{
 		while (i < 2)
 		{
-			printf("FUNCTION CALL\n %s", get_next_line(fd));
-	/* 		get_next_line(fd); */
+			line = get_next_line(fd);
+			printf("FUNCTION CALL\n %s", line);
+			free(line);
 			i++;
 		}
 	}
