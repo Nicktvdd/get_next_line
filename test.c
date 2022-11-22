@@ -6,21 +6,20 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	int	fd;
 	int	i;
 	char *line;
 	
-	if (argc == 0)
-		return 0;
-	fd = open(argv[1], O_RDONLY);
+	fd = open("./testfile.txt", O_RDONLY);
+	i = 0;
 	if (fd)
 	{
 		while (i < 2)
 		{
 			line = get_next_line(fd);
-			printf("FUNCTION CALL\n %s", line);
+			printf("FUNCTION CALL:%s:\n", line);
 			free(line);
 			i++;
 		}
