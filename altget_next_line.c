@@ -6,12 +6,11 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:06:26 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/18 15:57:04 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:23:04 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 size_t	ft_strlen(char *s, char c)
 {
