@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:44 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 14:39:56 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:27:13 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,6 @@ size_t	ft_strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-char	*ft_strchr(char *s, int c)
-{
-	size_t	i;
-	char	*str;
-
-	if (!s)
-		return (0);
-	str = (char *)s;
-	c = (char)c;
-	i = 0;
-	while (str[i] != c && str[i] != '\0')
-		i++;
-	if (str[i] == c)
-	{
-		str = &str[i];
-		return (str);
-	}
-	else
-		return (NULL);
 }
 
 static char	*ft_append(char *s2, int i, char *newstr)

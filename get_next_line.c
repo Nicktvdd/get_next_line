@@ -6,11 +6,32 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:36:32 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 14:11:06 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:27:11 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strchr(char *s, int c)
+{
+	size_t	i;
+	char	*str;
+
+	if (!s)
+		return (0);
+	str = (char *)s;
+	c = (char)c;
+	i = 0;
+	while (str[i] != c && str[i] != '\0')
+		i++;
+	if (str[i] == c)
+	{
+		str = &str[i];
+		return (str);
+	}
+	else
+		return (NULL);
+}
 
 char	*ft_read(int fd, char *ret)
 {
