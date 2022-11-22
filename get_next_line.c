@@ -6,21 +6,17 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:36:32 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 13:23:05 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:11:06 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*ft_read(int fd, char *ret)
 {
-	char			*buf;
-	int				byt;
-	char			*result;
-	static char		*ret;
+	char	*buf;
+	int		byt;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
 	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buf)
 		return (NULL);
@@ -36,9 +32,20 @@ char	*get_next_line(int fd)
 		buf[byt] = '\0';
 		ret = ft_strjoin(ret, buf);
 	}
+	free(buf);
+	return (ret);
+}
+
+char	*get_next_line(int fd)
+{
+	char			*result;
+	static char		*ret;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	ret = ft_read(fd, ret);
 	if (!ret)
 		return (NULL);
-	free(buf);
 	result = ft_line(ret);
 	ret = ft_next(ret);
 	return (result);
