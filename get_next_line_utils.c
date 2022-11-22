@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:44 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 13:23:03 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:39:37 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,9 @@ char	*ft_line(char *ret)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (ret[i] && ret[i] != '\n')
+	while (ret[i] && ret[i - 1] != '\n')
 	{
 		str[i] = ret [i];
-		i++;
-	}
-	if (ret[i] == '\n')
-	{
-		str[i] = '\n';
 		i++;
 	}
 	str[i] = '\0';
@@ -120,7 +115,7 @@ char	*ft_next(char *ret)
 
 	i = 0;
 	while (ret[i] && ret[i] != '\n')
-	i++;
+		i++;
 	if (!ret[i])
 	{
 		free(ret);
@@ -128,7 +123,10 @@ char	*ft_next(char *ret)
 	}
 	str = (char *)malloc(sizeof(char) * (ft_strlen(ret) - i + 1));
 	if (!str)
+	{
+		free(ret);
 		return (NULL);
+	}
 	i++;
 	j = 0;
 	while (ret[i])
