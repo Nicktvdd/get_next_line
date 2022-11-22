@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:36:32 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 16:28:01 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:48:24 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 	ret = ft_read(fd, ret);
 	if (!ret)
 		return (NULL);
-	result = ft_line(ret);
+	result = ft_line_cut(ret);
 	ret = ft_next(ret);
 	return (result);
 }
