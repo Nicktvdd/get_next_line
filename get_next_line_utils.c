@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nick <nick@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:44 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/21 15:57:11 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 08:53:33 by nick             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ char	*ft_strchr(char *s, int c)
 	size_t	i;
 	char	*str;
 
+	if (!s)
+		return (0);
 	str = (char *)s;
 	c = (char)c;
 	i = 0;
-	if (!s)
-		return (0);
 	while (str[i] != c && str[i] != '\0')
 		i++;
 	if (str[i] == c)
@@ -66,10 +66,14 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		s2size;
 
 	i = 0;
+	if (!s1)
+	{
+		s1 = (char*)malloc(sizeof(char));
+		s1[0] = '\0';
+	}
 	if (!s1 || !s2)
 		return (NULL);
-	s2size = (sizeof(s2) * ft_strlen(s2));
-	newstr = malloc((sizeof(s1) * ft_strlen(s1)) + s2size);
+	newstr = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (newstr == NULL)
 		return (NULL);
 	while (s1[i])
@@ -78,6 +82,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	ft_append(s2, i, newstr);
+	free(s1);
 	return (newstr);
 }
 
