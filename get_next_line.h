@@ -6,12 +6,12 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:37:03 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/21 13:15:34 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:56:47 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -19,7 +19,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 50
 # endif
-
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);
