@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:42:44 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 16:48:25 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:37:28 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-static char	*ft_append(char *s2, int i, char *newstr)
+static char	*append(char *s2, int i, char *newstr)
 {
 	int	j;
 
@@ -61,12 +61,12 @@ char	*ft_strjoin(char *s1, char *s2)
 		newstr[i] = s1[i];
 		i++;
 	}
-	ft_append(s2, i, newstr);
+	append(s2, i, newstr);
 	free(s1);
 	return (newstr);
 }
 
-char	*ft_line_cut(char *ret)
+char	*cut_line(char *ret)
 {
 	int		i;
 	char	*str;
@@ -92,7 +92,7 @@ char	*ft_line_cut(char *ret)
 	return (str);
 }
 
-char	*ft_next(char *ret)
+char	*store_next_line(char *ret)
 {
 	int		i;
 	int		j;

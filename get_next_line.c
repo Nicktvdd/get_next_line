@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:36:32 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/22 16:48:24 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:37:28 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strchr(char *s, int c)
 		return (NULL);
 }
 
-char	*ft_read(int fd, char *ret)
+char	*read_line(int fd, char *ret)
 {
 	char	*buf;
 	int		byt;
@@ -61,10 +61,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ret = ft_read(fd, ret);
+	ret = read_line(fd, ret);
 	if (!ret)
 		return (NULL);
-	result = ft_line_cut(ret);
-	ret = ft_next(ret);
+	result = cut_line(ret);
+	ret = store_next_line(ret);
 	return (result);
 }
