@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:36:32 by nvan-den          #+#    #+#             */
-/*   Updated: 2022/11/23 12:37:28 by nvan-den         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:50:04 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strchr(char *s, int c)
 		return (NULL);
 }
 
-char	*read_line(int fd, char *ret)
+char	*read_line(int fd, char *line)
 {
 	char	*buf;
 	int		byt;
@@ -39,7 +39,7 @@ char	*read_line(int fd, char *ret)
 	if (!buf)
 		return (NULL);
 	byt = 1;
-	while (!ft_strchr(ret, '\n') && byt != 0)
+	while (!ft_strchr(line, '\n') && byt != 0)
 	{
 		byt = read(fd, buf, BUFFER_SIZE);
 		if (byt == -1)
@@ -48,23 +48,23 @@ char	*read_line(int fd, char *ret)
 			return (NULL);
 		}
 		buf[byt] = '\0';
-		ret = ft_strjoin(ret, buf);
+		line = ft_strjoin(line, buf);
 	}
 	free(buf);
-	return (ret);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
 	char			*result;
-	static char		*ret;
+	static char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ret = read_line(fd, ret);
-	if (!ret)
+	line = read_line(fd, line);
+	if (!line)
 		return (NULL);
-	result = cut_line(ret);
-	ret = store_next_line(ret);
+	result = cut_line(line);
+	line = store_next_line(line);
 	return (result);
 }
